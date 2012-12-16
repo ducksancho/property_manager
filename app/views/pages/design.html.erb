@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render 'layouts/head_tag' %>
+</head>
+<body id="styleGuide">
+  <h1>Style Guide</h1>
+
+  <div class="guideFile">
+    <h2>color.css.scss</h2>
+    <h3>colours</h3>
+    <div class="guideCode">$blue_std: #00A3D3</div>
+    <div class="guideShow" style="background-color: #00A3D3; height: 30px;"></div>
+    <div class="guideCode">$grey_std: #DDD</div>
+    <div class="guideShow" style="background-color: #DDD; height: 30px;"></div>
+  </div>
+
+  <div class="guideFile">
+    <h2>default.css.scss</h2>
+    <h3>display</h3>
+    <div class="guideCode"> <%= '<div class="guideBox left">left</div>' %> </div>
+    <div class="guideShow"> <div class="guideBox left">left</div> </div>
+    <div class="guideCode"> <%= '<div class="guideBox right">right</div>' %> </div>
+    <div class="guideShow"> <div class="guideBox right">right</div> </div>
+    <div class="guideCode"><pre><%='
+<div class="guideBox right">left</div>
+<div class="guideBox clear right">clear right</div>'
+    %></pre></div>
+    <div class="guideShow">
+        <div class="guideBox left">left</div>
+        <div class="guideBox clear right">clear right</div>
+    </div>          
+    <div class="guideCode"> <%= '<div class="guideBox hidden">hidden</div>' %> </div>
+    <div class="guideShow"> <div class="guideBox hidden">hidden</div> </div>
+  </div>
+  
+  <div class="guideFile">
+    <h2>header.css.scss</h2>
+    <h3>header</h3>
+    <div class="guideCode"> <pre><%='<%= render "layouts/header" %'+'>' %></pre></div>
+    <div class="guideShow"><%= render 'layouts/header' %></div>
+  </div>
+
+  <div class="guideFile">
+    <h2>footer.css.scss</h2>
+    <h3>footer</h3>
+    <div class="guideCode"> <pre><%='<%= render "layouts/footer" %'+'>' %></pre></div>
+    <div class="guideShow"><%= render 'layouts/footer' %></div>
+  </div>
+</body>
+</html>

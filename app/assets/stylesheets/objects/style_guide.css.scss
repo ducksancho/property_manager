@@ -1,0 +1,57 @@
+#styleGuide {
+  width: 700px;
+  margin: 10px auto;
+  h1 {
+    font-size: 120%;
+    font-weight: bold;
+    color: $blue_std;
+    text-align: center;
+  }
+  .guideFile {
+    &>h2 {
+      font-size: 110%;
+      color: $blue_std;
+      font-weight: bold;
+      line-height: 40px;
+      margin-top: 15px;
+    }
+    &>h3 {
+      font-size: 100%;
+      color: $blue_std;      
+      margin-left: 5px;      
+    }
+    &>p {
+      padding-left: 10px;
+      font-size: 90%;
+      color: $blue_std;
+    }
+    .guideCode {
+      font-size: 80%;
+      color: $gray_dark;
+      margin-left: 10px;
+    }
+    .guideShow {
+      border: 1px solid $gray_std;
+      border-radius: 4px;
+      padding: 5px;
+      margin-left: 10px;
+      overflow: auto;
+      .guideBox {
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        background-color: $gray_std;
+        padding: 5px 10px;
+      }
+      .guideBorder {
+        border: 1px solid $blue_std;
+      }
+      .guideBgBlue {
+        background-color: $blue_std;
+      }
+      .guideBgGray {
+        background-color: $gray_std;
+      }
+    }
+  }
+}
