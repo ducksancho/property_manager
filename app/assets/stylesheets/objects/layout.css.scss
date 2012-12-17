@@ -1,8 +1,16 @@
 html, body {
   height: 100%;
+  width: 100%;
 }
 #fullsizeFrame {
   width: 100%;
   height: 100%;
   margin-bottom: -70px;
+}
+@mixin default_layout_width{
+  min-width: 900px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }

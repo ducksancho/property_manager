@@ -37,8 +37,22 @@
   <div class="guideFile">
     <h2>header.css.scss</h2>
     <h3>header</h3>
-    <div class="guideCode"> <pre><%='<%= render "layouts/header" %'+'>' %></pre></div>
-    <div class="guideShow"><%= render 'layouts/header' %></div>
+    <div class="guideCode"> <pre><%='
+<% top_menu_tag :dashboard %'+'>
+<%= render "layouts/header" %'+'>' 
+    %></pre></div>
+    <div class="guideShow">
+      <% current_top_menu(:dashboard, :active) %>
+      <%= render 'layouts/header' %>
+    </div>
+    <div class="guideCode"> <pre><%='
+<% top_menu_tag :dashboard %'+'>
+<%= render "layouts/header" %'+'>' 
+    %></pre></div>
+    <div class="guideShow">
+      <% current_top_menu(:dashboard, :semi_active) %>
+      <%= render 'layouts/header' %>
+    </div>
   </div>
 
   <div class="guideFile">

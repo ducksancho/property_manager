@@ -2,4 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  top_menu:
+    dashboard: "Dashboard"
+    properties: "Properties"
+  link:
+    logout: "Logout"
+    profile: "Profile"

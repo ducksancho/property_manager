@@ -1,5 +1,107 @@
-#header {
-  width: 100%;
+#headerWrapper {
   height: 70px;
-  background-color: $blue_std;
+  width: 100%;
+  background-color: $blue_std;  
+}
+
+#header {
+  height: 100%;
+  @include default_layout_width;
+}
+
+#profile {
+  float: right;
+  text-align: right;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  &>.title {
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    background: $white_std;
+    color: $blue_std;
+    font-weight: bold;
+    padding: 0 15px;
+    margin-bottom: 10px;    
+  }
+  &:hover {
+    &>.title {
+      background-color: $gray_light;
+    }
+    &>ul {
+      display: block;
+    }
+  }
+  &>ul {
+    position: absolute;
+    width: 200px;
+    right: 85px;
+    border-radius: 7px;
+    border: 1px solid $blue_std;
+    background-color: $white_std;
+    display: none;
+    &>li {
+      height: 30px;
+      border-top: 1px solid $blue_std;
+      text-align: left;
+      text-indent: 20px;
+      line-height: 30px;
+      font-weight: bold;
+      color: $gray_std;
+      &>a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &>li:nth-child(1) {
+      border-top: none;
+    }    
+  }
+}
+
+#top_menu {
+  margin-top: -30px;
+  margin-left: 25px;
+  height: 30px;
+  overflow: hidden;
+  &>.menu {
+    float: left;
+    margin-left: 5px;
+    width: 120px;
+    text-align: center;
+    font-size: 100%;
+    font-weight: bold;
+    &>.active, &>.semiActive, &>.deactive {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      padding-top: 5px;
+      height: 30px;
+      border: 1px solid $gray_light;
+      color: $blue_std;
+      background-color: $white_std;
+    }
+    &>.active {
+      border: 1px solid $gray_light;
+      color: $blue_std;
+    }
+    &>.semiActive {
+      &:hover {
+        background-color: $white_std;
+        color: $blue_light;
+        cursor: pointer;
+      }                  
+    }
+    &>.deactive {
+      color: $white_std;
+      background-color: $blue_std;
+      &:hover {
+        background-color: $white_std;
+        color: $blue_light;
+        cursor: pointer;
+      }
+    }
+  }
 }
