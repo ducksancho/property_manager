@@ -1,0 +1,15 @@
+#messagesWrapper {
+  width: 100%;
+  position: absolute;
+  .messages {
+    width: 600px;
+    margin: -20px auto 0 auto;
+    height: 50px;
+    border-radius: 20px;
+    background-color: $white_std;
+    border: 1px solid $gray_light;    
+    .notice {
+      color: red;
+    }
+  }
+}

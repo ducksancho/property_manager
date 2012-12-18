@@ -1,0 +1,186 @@
+form {
+  margin: 10px;
+  //  positions
+  .full  {width: 100%; float: left;}
+  .half  {
+    width: 49%; 
+    float: left;
+    &.last {
+      float: right;
+    }
+  }
+  .oneThird {
+    float: left;
+    margin-right: 2%;
+    width: 32%;
+    &.last{
+      margin-right: 0;
+      float: right;
+    }
+  }
+  .field {
+    font-size: 90%;
+    margin-top: 5px;    
+    .label {
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      vertical-align: middle;     
+    }
+    textarea, input, select {
+      width: 100%;
+    }
+    textarea {
+      @include border_box();
+      margin-right: 3px;
+      resize: vertical;
+      min-height: 100px;
+      width: 100%;
+      border: 1px solid $gray_light;
+    }
+    p {
+      text-align: center;
+      height: 25px;
+      border: 1px solid $gray_light;
+      border-radius: 5px;
+    }
+    input {
+      display:block; 
+      padding:0;
+      border-width:0;
+      border-radius: 3px;  
+    }
+    input[type=text] {
+      height: 25px;
+      padding: 0;
+      margin: 0;
+      @include content_box();
+    }
+    // Example
+    // <div class="check"><%= check_box_tag "select_1", 1 %><label for="select_1"></label></div>
+    // <div class="content"> content displayed on the right side of the check box </div>
+    .radio, .check {
+      float: left;
+      &>input[type=radio], &>input[type=checkbox] {
+        height: 20px;
+        width: 20px;
+        opacity: 0;
+        float: left;
+        padding: 0;
+        &+label {
+          background-color: $white_std;
+          border-radius: 5px;
+          display: block;
+          margin: 0;
+          padding: 0;
+          width: 25px;
+          height: 25px;
+          border: 1px solid $gray_light;
+        }
+      }
+      &>input[type=radio] { 
+        &+label { border-radius: 13px; }
+      }
+      &+div.content {margin-left: 35px; }
+      input[type=checkbox]:checked + label {background: url('checkbox_checked.png') center center no-repeat; background-color: $white_std;}
+      input[type=radio]:checked + label {background: url('checkbox_radio.png') center center no-repeat; background-color: $white_std;}              
+    }    
+    // Example
+    // <div class="check_full"><%= check_box_tag "select_1", 1 %><div class='icon'></div><label for="select_1"></label></div>
+    .radio_full, .check_full {
+      &>input[type=radio], &>input[type=checkbox] {
+        height: 30px;
+        width: 30px;
+        opacity: 0;
+        float: left;
+        padding: 0;              
+        &+.icon {
+          background-color: $white_std;
+          border: 1px solid $gray_light;
+          border-radius: 5px;
+          position: absolute;
+          margin-top: 5px;
+          width: 20px;
+          height: 20px;
+          pointer-events: none;
+          &+label {
+            height: 30px;
+            line-height: 30px;
+            display: block;
+            margin: 0;
+            padding: 0 0 0 20px;
+            cursor: hand; 
+            cursor: pointer;
+            &:hover {
+              background-color: $blue_light;
+            }
+          }
+        }  
+      }
+      &>input[type=radio] { 
+        &+.icon { border-radius: 13px; }
+      }
+      
+      input[type=checkbox]:checked + .icon {background: url('checkbox_checked.png') center center no-repeat; background-color: $white_std;}
+      input[type=radio]:checked + .icon {background: url('checkbox_radio.png') center center no-repeat; background-color: $white_std;}              
+    }        
+    select {
+      color: $gray_std;
+      height: 25px;
+      line-height: 25px;
+      padding-top: 2px;
+    }
+    input[type=file] {
+      float: left;
+      border: 1px solid $gray_light;
+    }
+    
+    .textField {
+      border-radius: 2px;
+      border: 1px solid $gray_light;
+      padding: 5px;
+      background-color: $white_std;
+    }    
+    .fileField {
+      display: none;
+      background-color: $white_std;
+      border-radius: 2px;
+      border: 1px solid $gray_light;
+      padding: 5px;
+      &:hover{
+        cursor: pointer;
+        background-color: $blue_std;
+      }
+      .fileFieldDisplay {
+        display: none;
+      }
+    }
+    label.fieldWithErrors{
+      background-color: $red_light;
+      color: $red_std;
+      padding: 0 5px;
+      border-radius: 3px;
+    } 
+  }
+}
+.errors {
+  border-radius: 5px;
+  margin: 5px 0 0 0;
+  padding: 5px 0 5px 0;
+  background-color: $gray_light;
+  &>.error {
+    font-size: 95%;
+    background: url('icon_error.png') 20px center no-repeat;
+    min-height: 30px;
+    line-height: 30px;
+    padding: 0 5px 0 45px;
+    color: $red_std;
+  }
+}
+.actionBox {
+  clear: both;
+  float: left;
+  width: 100%;
+  padding: 20px 0 20px 0;
+  overflow: auto;
+}

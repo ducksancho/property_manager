@@ -5,6 +5,22 @@ en:
   top_menu:
     dashboard: "Dashboard"
     properties: "Properties"
+  page_title:
+    register_user: "Register"
+  title:
+    register_user: "Register"
   link:
     logout: "Logout"
     profile: "Profile"
+    cancel: "Cancel"
+    update: "Update"
+    register: "Register"
+  message:
+    user_registered: "You are registered"
+  attributes:
+    f_name: "First Name"
+    l_name: "Last Name"
+    email: "E-Mail"
+    password: "Password"
+    password_confirmation: "Password Confirmation"
+    edit_password: "Edit Password"

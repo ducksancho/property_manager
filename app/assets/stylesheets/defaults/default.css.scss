@@ -2,3 +2,17 @@
 .right  { float: right;}
 .left   { float: left;}
 .hidden { display: none;}
+
+@mixin content_box{
+  display: inline-block;
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;  
+  -webkit-appearance: none;
+}
+
+@mixin border_box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

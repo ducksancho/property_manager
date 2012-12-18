@@ -1,0 +1,12 @@
+<%= form_for @user do |f| %>
+  <%= validation_messages @user %>
+  <%= form_field(f, :f_name, :text, "half") %>
+  <%= form_field(f, :l_name, :text, "half last") %>
+  <%= form_field(f, :email, :text, "full") %>  
+  <%= form_field(f, :password, :text, "half") %>    
+  <%= form_field(f, :password_confirmation, :text, "half last") %>
+  <div class="actionBox">
+    <%= link_to(t("link.cancel"), (@user.persisted? ? user_path(@user) : root_path), :class => "button bGray left") %>
+    <%= f.submit(t("link.#{@user.persisted? ? "update" : "register"}"), :class => "button bBlue right") %>
+  </div>
+<% end %>
