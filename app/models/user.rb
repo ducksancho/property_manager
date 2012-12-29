@@ -11,25 +11,21 @@ class User < ActiveRecord::Base
                         :confirmation => true,
                         :allow_blank => true
   validates :password, :presence => true, :if => :password_required?
-  validate :validate_signup_code
   
-  VALID_SIGNUP_CODES = ["HAPPYNEWYEAR"] 
+  VALID_SIGNUP_CODES = ["HAPPYNEWYEAR"]
   
   before_save :encrypt_password
   
-  private
-  
-  def validate_signup_code
-    unless persisted?
-      unless VALID_SIGNUP_CODES.include? signup_code
-        return errors.add(:signup_code, t("message.signup_code_invalid"))
-      end
-      if User.find_by_signup_code(signup_code).present?
-        return errors.add(:signup_code, t("message.signup_code_used"))
-      end
-    end
+  # Always check before create
+  def signup_code_error    
+    return I18n.t("message.no_signup_without_signup_code")  if signup_code.blank?
+    return I18n.t("message.signup_code_invalid")            unless VALID_SIGNUP_CODES.include? signup_code
+    return I18n.t("message.signup_code_used")               if User.find_by_signup_code(signup_code).present?
+    nil
   end
   
+  private
+    
   def password_required?
     !persisted? || edit_password.present?
   end

@@ -14,3 +14,14 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :test do
+  gem 'rspec-core'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'autotest'
+  gem 'spork'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+end
