@@ -17,10 +17,15 @@ en:
     register: "Register"
   message:
     user_registered: "You are registered"
+    signup_code_invalid: "Signup code is invalid"
+    signup_code_used: "Signup code was used"
+    no_signup_without_signup_code: "Sorry! Only invited users can signup"
   attributes:
+    # user
     f_name: "First Name"
     l_name: "Last Name"
     email: "E-Mail"
     password: "Password"
     password_confirmation: "Password Confirmation"
     edit_password: "Edit Password"
+    signup_code: "Signup Code"

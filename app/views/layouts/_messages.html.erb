@@ -1,5 +1,7 @@
-<div id="messagesWrapper"><div class="messages">
-  <% flash.each do |key, value| %>
-  <div class="<%= key %>"><%= value %></div>
-  <% end %>
-</div></div>
+<% if flash.count > 0 %>
+  <div id="messagesWrapper"><div id="messages">
+    <% flash.each do |key, value| %>
+    <div class="<%= key %>"><%= value %></div>
+    <% end %>
+  </div></div>
+<% end %>

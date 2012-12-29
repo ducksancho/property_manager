@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
+    if params[:signup_code]
+      @user = User.new(:signup_code => params[:signup_code])
+    else
+      redirect_to root_path, :notice => t("message.no_signup_without_signup_code")
+    end
   end
 
   def create
@@ -8,7 +12,6 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path, :notice => t("message.user_registered")
     else
-      flash.now[:notice] = "aaa"
       render :new
     end
   end

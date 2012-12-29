@@ -1,15 +1,22 @@
 #messagesWrapper {
-  width: 100%;
+  width: 600px;
   position: absolute;
-  .messages {
-    width: 600px;
-    margin: -20px auto 0 auto;
-    height: 50px;
-    border-radius: 20px;
-    background-color: $white_std;
-    border: 1px solid $gray_light;    
-    .notice {
-      color: red;
-    }
+  margin-left: 100px;
+}
+
+#messages {
+  margin: -20px auto 0 auto;
+  padding-top: 20px;
+  height: 25px;
+  border-radius: 20px;
+  background-color: $white_std;
+  border: 1px solid $gray_light;    
+  text-align: center;
+  .notice, .alert {
+    height: 22px;
+    line-height: 22px;      
+    margin: 0 10px 0 10px;
   }
+  .notice { color: $blue_dark; }
+  .alert { color: $red_dark; }
 }

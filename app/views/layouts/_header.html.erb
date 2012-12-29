@@ -1,6 +1,6 @@
 <div id="headerWrapper">
   <div id="header">
-    <%#= render 'layouts/messages' %>
+    <%= render 'layouts/messages' %>
     <div id="profile">
       <div class="title">Daniel</div>
       <ul>
@@ -8,9 +8,9 @@
         <li><%= link_to t("link.logout"), root_path %></li>
       </ul>
     </div>
-  </div>
-  <div id="top_menu">
-    <div class="menu"><%= top_menu_tag :dashboard %></div>
-    <div class="menu"><%= top_menu_tag :properties %></div>
+    <div id="top_menu">
+      <div class="menu"><%= top_menu_tag :dashboard %></div>
+      <div class="menu"><%= top_menu_tag :properties %></div>
+    </div>
   </div>
 </div>

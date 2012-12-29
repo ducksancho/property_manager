@@ -1,8 +1,9 @@
 <%= form_for @user do |f| %>
   <%= validation_messages @user %>
+  <%= f.hidden_field(:signup_code) unless @user.persisted? %>
   <%= form_field(f, :f_name, :text, "half") %>
   <%= form_field(f, :l_name, :text, "half last") %>
-  <%= form_field(f, :email, :text, "full") %>  
+  <%= form_field(f, :email, :text, "full") %>
   <%= form_field(f, :password, :text, "half") %>    
   <%= form_field(f, :password_confirmation, :text, "half last") %>
   <div class="actionBox">
