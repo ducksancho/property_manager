@@ -7,9 +7,13 @@ en:
     properties: "Properties"
   page_title:
     register_user: "Register"
+    login: "Login"
   title:
     register_user: "Register"
+    update_user: "Update Profile"
+    login: "Login"
   link:
+    login: "Login"
     logout: "Logout"
     profile: "Profile"
     cancel: "Cancel"
@@ -17,9 +21,13 @@ en:
     register: "Register"
   message:
     user_registered: "You are registered"
+    user_updated: "Your profile has updated"
     signup_code_invalid: "Signup code is invalid"
     signup_code_used: "Signup code was used"
     no_signup_without_signup_code: "Sorry! Only invited users can signup"
+    welcome: "Welcome!"
+    incorrect_email_or_password: "E-mail or password is wrong"
+    logout_success: "See you!"
   attributes:
     # user
     f_name: "First Name"

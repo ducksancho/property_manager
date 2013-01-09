@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.10'
 
 gem 'mysql2'
 gem 'xero_gateway'
+gem 'cancan'
 
 # Gems used only for assets and not required
 # in production environments by default.

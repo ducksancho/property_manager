@@ -9,21 +9,45 @@
   height: 100%;
   @include default_layout_width;
 }
-
-#profile {
+#login, #profile {
   float: right;
   text-align: right;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  &>.title {
+  margin-top: 45px;
+  margin-bottom: 10px;  
+}
+#login {
+  &>a {
+    display: block;
     height: 30px;
+    width: 150px;
+    text-align: center;
     line-height: 30px;
-    border-radius: 5px;
+    border-radius: 7px;
+    border: 2px solid $white_std;
     background: $white_std;
     color: $blue_std;
     font-weight: bold;
     padding: 0 15px;
     margin-bottom: 10px;    
+    &:hover {
+      background: $gray_light;
+      color: $blue_dark;
+    }
+  }  
+}
+#profile {
+  &>.username {
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 7px;
+    border: 2px solid $white_std;
+    background: $white_std;
+    color: $blue_std;
+    font-weight: bold;
+    padding: 0 15px;
+    margin-bottom: 5px;    
   }
   &:hover {
     &>.title {
@@ -37,7 +61,7 @@
     position: absolute;
     width: 200px;
     border-radius: 7px;
-    margin-left: -127px;
+    margin-left: -7px;
     border: 2px solid $blue_std;
     background-color: $white_std;
     display: none;

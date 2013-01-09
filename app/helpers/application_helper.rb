@@ -1,5 +1,6 @@
 module ApplicationHelper
   include MenuHelper
+  include SessionsHelper
   include HeaderHelper
   include FormHelper
   

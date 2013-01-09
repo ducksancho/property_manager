@@ -16,6 +16,14 @@ class User < ActiveRecord::Base
   
   before_save :encrypt_password
   
+  def name
+    "#{f_name} #{l_name}"
+  end
+  
+  def valid_password?(password_to_check)
+    encrypted_password == encrypt(password_to_check) 
+  end
+  
   # Always check before create
   def signup_code_error    
     return I18n.t("message.no_signup_without_signup_code")  if signup_code.blank?

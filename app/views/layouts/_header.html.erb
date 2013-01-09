@@ -1,13 +1,17 @@
 <div id="headerWrapper">
   <div id="header">
     <%= render 'layouts/messages' %>
-    <div id="profile">
-      <div class="title">Daniel</div>
-      <ul>
-        <li><%= link_to t("link.profile"), root_path %></li>
-        <li><%= link_to t("link.logout"), root_path %></li>
-      </ul>
-    </div>
+    <% unless current_user %>
+      <div id="login"><%= link_to t("link.login"), login_path %></div>
+    <% else %>
+      <div id="profile">
+        <div class="username"><%= current_user.name %></div>
+        <ul>
+          <li><%= link_to t("link.profile"), root_path %></li>
+          <li><%= link_to t("link.logout"), logout_path %></li>
+        </ul>
+      </div>
+    <% end %>
     <div id="top_menu">
       <div class="menu"><%= top_menu_tag :dashboard %></div>
       <div class="menu"><%= top_menu_tag :properties %></div>
