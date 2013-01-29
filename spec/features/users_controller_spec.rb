@@ -94,23 +94,138 @@ describe "UsersController" do
       end
     end
   end
-  describe "edit", :focus => true do
+  describe "edit" do
     before(:each) do
       @user = FactoryGirl.create(:user)
     end
     describe "view" do
-      it "should right" do
-        visit edit_user_path(@user)
-        page.find_field("user[f_name]")
-        page.find_field("user[l_name]")
-        page.find_field("user[email]")
-        page.find_field("user[password]")
-        page.find_field("user[password_confirmation]")
-        page.should_not have_xpath("//input[@name = 'user[signup_code]'][@value = '#{@valid_signup_code}']")
+      describe "logout user" do
+        it "should right" do
+          visit edit_user_path(@user)
+          page.current_path.should == login_path
+        end
+      end
+      describe "current user" do
+        before(:each) do
+          login(@user.email, "password")
+        end
+        it "should right" do
+          visit edit_user_path(@user)
+          page.find_field("user[f_name]")
+          page.find_field("user[l_name]")
+          page.find_field("user[email]")
+          page.should_not have_xpath("//input[@name = 'user[password]']")
+          page.should_not have_xpath("//input[@name = 'user[password_confirmation]']")
+          page.should_not have_xpath("//input[@name = 'user[signup_code]'][@value = '#{@valid_signup_code}']")
+        end                
+      end
+      describe "other user" do
+        before(:each) do
+          @new_user = FactoryGirl.create(:user)
+          login(@user.email, "password")
+        end
+        it "should right" do
+          visit edit_user_path(@new_user)          
+          page.current_path.should == root_path
+          page.should have_content(I18n.t("message.access_denied"))
+        end        
       end
     end
   end
   describe "update" do
-    
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      login(@user.email, "password") 
+      visit edit_user_path(@user)
+    end
+    describe "success" do
+      it "should update user" do
+        page.fill_in("user[f_name]", :with => "new first name")
+        page.fill_in("user[l_name]", :with => "new last name")
+        page.fill_in("user[email]", :with => "newemail@pm.com")
+        page.click_button(I18n.t("link.update"))
+        page.current_path.should == root_path
+        page.should have_content(I18n.t("message.user_updated"))
+      end
+    end
+    describe "fail" do
+      it "wrong email format" do
+        page.fill_in("user[f_name]", :with => "new first name")
+        page.fill_in("user[l_name]", :with => "new last name")
+        page.fill_in("user[email]", :with => "new email")
+        page.click_button(I18n.t("link.update"))
+        page.current_path.should == user_path(@user.id)
+        page.should have_content("E-Mail is invalid")
+      end
+    end
+  end
+  describe "edit_password" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      login(@user.email, "password") 
+    end
+    describe "success" do
+      it "should right" do
+        visit edit_password_user_path(@user)
+        page.should have_xpath("//input[@name = 'user[original_password]']")
+        page.should have_xpath("//input[@name = 'user[password]']")
+        page.should have_xpath("//input[@name = 'user[password_confirmation]']")
+      end      
+      describe "current user" do
+        before(:each) do
+          login(@user.email, "password")
+        end
+        it "should right" do
+          visit edit_password_user_path(@user)
+          page.should have_xpath("//input[@name = 'user[original_password]']")
+          page.should have_xpath("//input[@name = 'user[password]']")
+          page.should have_xpath("//input[@name = 'user[password_confirmation]']")
+        end                
+      end
+      describe "other user" do
+        before(:each) do
+          @new_user = FactoryGirl.create(:user)
+          login(@user.email, "password")
+        end
+        it "should right" do
+          visit edit_user_path(@new_user)          
+          page.current_path.should == root_path
+          page.should have_content(I18n.t("message.access_denied"))
+        end        
+      end
+    end
+  end
+  describe "update_password" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      login(@user.email, "password") 
+      visit edit_password_user_path(@user)
+    end
+    describe "success" do
+      it "should update user" do
+        page.fill_in("user[original_password]", :with => "password")
+        page.fill_in("user[password]", :with => "new_password")
+        page.fill_in("user[password_confirmation]", :with => "new_password")
+        page.click_button(I18n.t("link.update"))
+        page.current_path.should == root_path
+        page.should have_content(I18n.t("message.password_updated"))
+        visit logout_path
+        login(@user.email, "new_password")
+        current_path.should == root_path
+        page.should have_content(I18n.t("message.welcome"))
+      end
+    end
+    describe "fail" do
+      it "password and confirmation are not matched" do
+        encrypted_password_backup = @user.encrypted_password
+        page.fill_in("user[password]", :with => "new_password")
+        page.fill_in("user[password_confirmation]", :with => "wrong_password")
+        page.click_button(I18n.t("link.update"))
+        @user.reload
+        @user.encrypted_password.should == encrypted_password_backup
+        page.current_path.should == update_password_user_path(@user)
+        page.should have_content("Password doesn't match confirmation")
+      end
+    end    
   end
 end

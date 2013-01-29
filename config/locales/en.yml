@@ -7,11 +7,14 @@ en:
     properties: "Properties"
   page_title:
     register_user: "Register"
+    update_user: "Update Profile"
     login: "Login"
+    update_password: "Update Password"
   title:
     register_user: "Register"
     update_user: "Update Profile"
     login: "Login"
+    update_password: "Update Password"  
   link:
     login: "Login"
     logout: "Logout"
@@ -28,6 +31,10 @@ en:
     welcome: "Welcome!"
     incorrect_email_or_password: "E-mail or password is wrong"
     logout_success: "See you!"
+    access_denied: "Access Denied"
+    record_not_found: "Record not Found"
+    password_updated: "Password Updated"
+    wrong_password: "is Wrong"
   attributes:
     # user
     f_name: "First Name"

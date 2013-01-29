@@ -1,3 +1,18 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input[type=checkbox][name="user[edit_password]"] ~ #password_fields {
+  display: none;
+}  
+input[type=checkbox][name="user[edit_password]"]:checked ~ #password_fields {
+  display: block;
+}
+#password_fields {
+  margin-top: 0;
+  width: 100%;
+  overflow: auto;
+  .field {
+    margin-top: 0;
+  }
+}

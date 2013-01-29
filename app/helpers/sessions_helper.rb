@@ -17,4 +17,7 @@ module SessionsHelper
   def logout
     session.delete(:id)
   end
+  def authentication
+    redirect_to login_path unless current_user
+  end
 end

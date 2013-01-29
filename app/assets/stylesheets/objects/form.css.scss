@@ -89,17 +89,18 @@ form {
     // <div class="check_full"><%= check_box_tag "select_1", 1 %><div class='icon'></div><label for="select_1"></label></div>
     .radio_full, .check_full {
       &>input[type=radio], &>input[type=checkbox] {
-        height: 30px;
-        width: 30px;
+        height: 25px;
+        width: 25px;
         opacity: 0;
         float: left;
-        padding: 0;              
+        padding: 0;        
         &+.icon {
           background-color: $white_std;
           border: 1px solid $gray_light;
           border-radius: 5px;
           position: absolute;
           margin-top: 5px;
+          margin-left: 5px;
           width: 20px;
           height: 20px;
           pointer-events: none;

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessor :password, :edit_password
-  attr_accessible :f_name, :l_name, :email, :password, :password_confirmation, :edit_password, :signup_code
+  attr_accessor :password, :edit_password, :update_password, :original_password
+  attr_accessible :f_name, :l_name, :email, :password, :password_confirmation, :update_password, :signup_code, :original_password
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
                         :confirmation => true,
                         :allow_blank => true
   validates :password, :presence => true, :if => :password_required?
+  
+  validate :validate_original_password
   
   VALID_SIGNUP_CODES = ["HAPPYNEWYEAR"]
   
@@ -32,10 +34,16 @@ class User < ActiveRecord::Base
     nil
   end
   
+  def validate_original_password
+    if update_password.present?
+      errors.add(:original_password, I18n.t("message.wrong_password")) unless valid_password?(original_password)
+    end
+  end
+  
   private
     
   def password_required?
-    !persisted? || edit_password.present?
+    !persisted? || update_password.present?
   end
   def encrypt_password
     if password_required?

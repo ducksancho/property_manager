@@ -1,5 +1,10 @@
 PropertyManager::Application.routes.draw do
-  resources :users, :only => [:new, :create, :edit, :update]
+  resources :users, :only => [:new, :create, :edit, :update] do
+    member do 
+      get :edit_password
+      put :update_password
+    end
+  end
   resources :sessions, :only => [:new, :create]
   
   get '/design', :to => 'pages#design', :as => 'design'  
