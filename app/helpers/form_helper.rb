@@ -45,5 +45,15 @@ module FormHelper
       end
     end
   end
-  
+  def display_field(m, method, type, field_class = "", hash = {})
+    content_tag(:div, nil, :class => "field #{field_class}") do
+      (hash[:no_label] ? raw("") : content_tag(:div, hash[:label_text] ? hash[:label_text] : method, :class => "label")) +
+      case type
+      when :p
+        content_tag(:div, nil, :class => "textField") do
+          content_tag(:p, m.try(method), hash[:input_hash] || {})
+        end
+      end
+    end    
+  end
 end

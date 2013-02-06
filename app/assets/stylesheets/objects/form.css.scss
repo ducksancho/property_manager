@@ -141,6 +141,9 @@ form {
       border: 1px solid $gray_light;
       padding: 5px;
       background-color: $white_std;
+      p {
+        border: none;
+      }
     }    
     .fileField {
       display: none;
@@ -164,6 +167,34 @@ form {
     } 
   }
 }
+.form {
+  margin: 10px;
+  .field {
+    font-size: 90%;
+    margin-top: 5px;   
+    overflow: auto;
+    border-bottom: 1px solid $gray_light; 
+    .label {
+      width: 40%;
+      float: left;
+      display: block;
+      height: 30px;
+      line-height: 30px;
+      vertical-align: middle;     
+      color: $gray_dark;
+    }
+    .textField {
+      width: 60%;
+      float: left;
+      height: 30px;
+      line-height: 30px;
+      background-color: $white_std;
+      p {
+        border: none;
+      }
+    }    
+  }
+}
 .errors {
   border-radius: 5px;
   margin: 5px 0 0 0;
@@ -182,6 +213,9 @@ form {
   clear: both;
   float: left;
   width: 100%;
-  padding: 30px 0 20px 0;
+  padding: 20px 0 20px 0;
   overflow: auto;
+  .button {
+    margin-left: 10px;
+  }
 }

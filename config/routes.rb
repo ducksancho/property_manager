@@ -1,5 +1,5 @@
 PropertyManager::Application.routes.draw do
-  resources :users, :only => [:new, :create, :edit, :update] do
+  resources :users, :only => [:new, :create, :show, :edit, :update] do
     member do 
       get :edit_password
       put :update_password

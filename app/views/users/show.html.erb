@@ -1,0 +1,16 @@
+<% title t("title.profile") %>
+
+<div class="contentMedium">
+  <h1><%= t("title.profile") %></h1>
+  
+  <div class="form">    
+    <div><%= display_field(@user, :f_name, :p) %></div>
+    <div><%= display_field(@user, :l_name, :p) %></div>
+    <div><%= display_field(@user, :email, :p) %></div>
+  </div>
+  <div class="actionBox">
+    <%= link_to(t("link.change_password"), edit_password_user_path(@user), :class => "button bGray right") %> 
+    <%= link_to(t("link.edit"), edit_user_path(@user), :class => "button bGray right") %>
+  </div>
+</div>
+

@@ -94,6 +94,22 @@ describe "UsersController" do
       end
     end
   end
+  describe "show" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      login(@user.email, "password")
+    end
+    describe "content" do
+      it "should right", :focus => true do
+        visit user_path(@user)
+        page.should have_content(@user.f_name)
+        page.should have_content(@user.l_name)
+        page.should have_content(@user.email)
+        page.should have_xpath("//a[@href = '#{edit_user_path(@user)}']", :text => I18n.t("link.edit"))
+        page.should have_xpath("//a[@href = '#{edit_password_user_path(@user)}']", :text => I18n.t("link.change_password"))
+      end      
+    end
+  end
   describe "edit" do
     before(:each) do
       @user = FactoryGirl.create(:user)

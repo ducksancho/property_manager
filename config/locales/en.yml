@@ -15,6 +15,7 @@ en:
     update_user: "Update Profile"
     login: "Login"
     update_password: "Update Password"  
+    profile: "Profile"
   link:
     login: "Login"
     logout: "Logout"
@@ -22,6 +23,8 @@ en:
     cancel: "Cancel"
     update: "Update"
     register: "Register"
+    edit: "Edit"
+    change_password: "Change Password"
   message:
     user_registered: "You are registered"
     user_updated: "Your profile has updated"

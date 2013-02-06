@@ -17,7 +17,12 @@ class UsersController < ApplicationController
       render :new
     end
   end
-
+  
+  def show
+    @user = User.find(params[:id])
+    authorize! :read, @user
+  end
+  
   def edit
     @user = User.find(params[:id])
     authorize! :update, @user
@@ -45,5 +50,5 @@ class UsersController < ApplicationController
     else
       render :edit_password
     end        
-  end
+  end  
 end
