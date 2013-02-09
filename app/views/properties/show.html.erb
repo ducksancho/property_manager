@@ -1,0 +1,20 @@
+<%
+  title "show_property"
+  current_top_menu(:properties, :semi_active) 
+%>
+
+<div class="contentMedium">
+  <div class="form">    
+    <div><%= display_field(@property, :street, :p) %></div>
+    <div><%= display_field(@property, :suburb, :p) %></div>
+    <div><%= display_field(@property, :city, :p) %></div>
+    <div><%= display_field(@property, :postcode, :p) %></div>
+    <div><%= display_field(@property, :n_room, :p) %></div>
+    <div><%= display_field(@property, :n_bathroom, :p) %></div>
+    <div><%= display_field(@property, :note, :p) %></div>
+  </div>
+  <div class="actions">
+    <%= link_to t("link.back"), properties_path, :class => "button bGray left" %>  
+    <%= link_to t("link.edit"), edit_property_path(@property), :class => "button bGray left" %>
+  </div>
+</div>

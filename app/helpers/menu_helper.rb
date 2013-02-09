@@ -4,7 +4,7 @@ module MenuHelper
     @current_top_menu = {menu => status}
   end
   def top_menu_tag(menu)
-    @links ||= {:dashboard => dashboard_path, :properties => dashboard_path}
+    @links ||= {:dashboard => dashboard_path, :properties => properties_path}
     case @current_top_menu.try(:[], menu)
     when nil
       link_to(t("top_menu.#{menu.to_s}"), @links[menu], :class => "deactive")

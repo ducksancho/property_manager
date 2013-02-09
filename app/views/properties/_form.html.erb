@@ -1,0 +1,20 @@
+<%= form_for(@property) do |f| %>
+  <%= validation_messages @property %>
+  <%= form_field(f, :street, :text, "half") %>
+  <%= form_field(f, :suburb, :text, "half last") %>
+  <%= form_field(f, :city, :text, "half") %>
+  <%= form_field(f, :postcode, :text, "half last") %>
+  <%= form_field(f, :n_room, :number, "half last") %>
+  <%= form_field(f, :n_bathroom, :number, "half") %>
+  <%= form_field(f, :note, :text, "full") %>
+  <div class="actions">
+    <% if @property.persisted? %>
+      <%= link_to(t("link.back"), properties_path, :class => "button bGray left") %>
+      <%= link_to(t("link.show"), property_path(@property), :class => "button bGray left") %>
+      <%= f.submit(t("link.update"), :disable_with => t("link.updating"), :class => "button bBlue right") %>
+    <% else %>
+      <%= link_to(t("link.back"), properties_path, :class => "button bGray left") %>
+      <%= f.submit(t("link.create"), :disable_with => t("link.creating"), :class => "button bBlue right") %>
+    <% end %>
+  </div>
+<% end %>

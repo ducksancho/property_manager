@@ -1,0 +1,39 @@
+<% 
+  title "properties"
+  current_top_menu(:properties, :active)
+%>
+
+<h1><%= t("title.properties") %></h1>
+<table>
+  <tr>
+    <th><%= t("attributes.street") %></th>
+    <th><%= t("attributes.suburb") %></th>
+    <th><%= t("attributes.city") %></th>
+    <th><%= t("attributes.postcode") %></th>
+    <th><%= t("attributes.n_room") %></th>
+    <th><%= t("attributes.n_bathroom") %></th>
+    <th><%= t("attributes.note") %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @properties.each do |property| %>
+  <tr>
+    <td><%= property.street %></td>
+    <td><%= property.suburb %></td>
+    <td><%= property.city %></td>
+    <td><%= property.postcode %></td>
+    <td><%= property.n_room %></td>
+    <td><%= property.n_bathroom %></td>
+    <td><%= property.note %></td>
+    <td><%= link_to 'Show', property %></td>
+    <td><%= link_to 'Edit', edit_property_path(property) %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= paginate_list("properties_path", 2) %>
+
+<div class="actions">
+  <%= link_to t("link.new_property"), new_property_path, :class => "button bBlue right" %>  
+</div>

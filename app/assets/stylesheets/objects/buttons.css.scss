@@ -11,6 +11,7 @@
   border: none;
   cursor: hand; 
   cursor: pointer;
+  font-weight: bold;
   &.bBlue {
     color: $white_std;
     background-color: $blue_std;

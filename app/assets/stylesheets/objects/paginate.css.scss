@@ -1,0 +1,25 @@
+.paginateList{
+  height: 20px;
+  div, a {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+    float: left;
+    color: $gray_dark;
+    cursor: pointer;
+    &:hover {
+      background-color: $gray_light;
+    }
+    &.dots {
+      background-color: $white_std;
+    }
+    &.current {
+      color: $blue_std;
+      &:hover {
+        background-color: $white_std;
+      }
+    }
+  }
+}
