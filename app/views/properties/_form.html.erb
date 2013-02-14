@@ -1,12 +1,20 @@
-<%= form_for(@property) do |f| %>
+<%= form_for(@property, :html => { :multipart => true }) do |f| %>
   <%= validation_messages @property %>
   <%= form_field(f, :street, :text, "half") %>
   <%= form_field(f, :suburb, :text, "half last") %>
   <%= form_field(f, :city, :text, "half") %>
   <%= form_field(f, :postcode, :text, "half last") %>
   <%= form_field(f, :n_room, :number, "half last") %>
-  <%= form_field(f, :n_bathroom, :number, "half") %>
-  <%= form_field(f, :note, :text, "full") %>
+  <%= form_field(f, :n_bathroom, :number, "half") %>.
+  <%= f.fields_for :notes do |v| %>
+    <%= form_field(v, :note, :text, "full") %>
+  <% end %>
+  <div class="field full">
+    <%= f.label(:photos, :class => "label") %>
+    <%= f.fields_for :photos do |v| %>
+      <%= form_field_photo(v, :photo, "full", :file_text => t("message.browse_to_photo"), :no_label => true) %>
+    <% end %>
+  </div>
   <div class="actions">
     <% if @property.persisted? %>
       <%= link_to(t("link.back"), properties_path, :class => "button bGray left") %>

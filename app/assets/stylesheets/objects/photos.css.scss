@@ -1,0 +1,15 @@
+form { 
+  .field.photo {
+    clear: both;
+    .check_full {
+      margin-left: 120px;
+      margin-top: 5px;
+    }
+    .fileField {
+      &.withPhoto {
+        margin-left: 120px;
+        margin-top: 5px;
+      }
+    }
+  }
+}

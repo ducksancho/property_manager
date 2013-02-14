@@ -25,7 +25,8 @@ class PropertiesController < ApplicationController
   # GET /properties/new.json
   def new
     @property = Property.new
-
+    @property.prepare_note_for_form
+    @property.prepare_photos_for_form
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @property }
@@ -35,6 +36,8 @@ class PropertiesController < ApplicationController
   # GET /properties/1/edit
   def edit
     @property = Property.find(params[:id])
+    @property.prepare_note_for_form
+    @property.prepare_photos_for_form
   end
 
   # POST /properties
@@ -47,6 +50,7 @@ class PropertiesController < ApplicationController
         format.html { redirect_to @property, notice: 'Property was successfully created.' }
         format.json { render json: @property, status: :created, location: @property }
       else
+        @property.prepare_photos_for_form
         format.html { render action: "new" }
         format.json { render json: @property.errors, status: :unprocessable_entity }
       end
@@ -63,6 +67,7 @@ class PropertiesController < ApplicationController
         format.html { redirect_to @property, notice: 'Property was successfully updated.' }
         format.json { head :no_content }
       else
+        @property.prepare_photos_for_form
         format.html { render action: "edit" }
         format.json { render json: @property.errors, status: :unprocessable_entity }
       end

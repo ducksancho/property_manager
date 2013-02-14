@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207093008) do
+ActiveRecord::Schema.define(:version => 20130209060723) do
+
+  create_table "notes", :force => true do |t|
+    t.string   "note"
+    t.integer  "notable_id"
+    t.string   "notable_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "photo"
+    t.integer  "photoable_id"
+    t.string   "photoable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "properties", :force => true do |t|
     t.string   "city"
@@ -20,7 +36,6 @@ ActiveRecord::Schema.define(:version => 20130207093008) do
     t.string   "postcode"
     t.integer  "n_bathroom"
     t.integer  "n_room"
-    t.string   "note"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

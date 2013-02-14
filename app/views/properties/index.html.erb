@@ -4,33 +4,26 @@
 %>
 
 <h1><%= t("title.properties") %></h1>
-<table>
-  <tr>
-    <th><%= t("attributes.street") %></th>
-    <th><%= t("attributes.suburb") %></th>
-    <th><%= t("attributes.city") %></th>
-    <th><%= t("attributes.postcode") %></th>
-    <th><%= t("attributes.n_room") %></th>
-    <th><%= t("attributes.n_bathroom") %></th>
-    <th><%= t("attributes.note") %></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="propertyIndex">
+  <% @properties.each do |property| %>
+    <div class="property">
+      <div class="propertyActions">
+        <%= link_to 'Show', property %> |
+        <%= link_to 'Edit', edit_property_path(property) %>
+      </div>
+      <div class="mainPhoto">
+        <%= link_to (property.photos.present? ? image_tag(property.photos.first.photo_url(:small)) : t("message.no_photo")), property %>
+      </div>
+      <div class="address">
+        <div class="street" title="<%= property.street %>"><%= link_to property.street, property %></div>
+        <div class="suburbCity" title="<%= "#{property.suburb}, #{property.city}" %>"><%= "#{property.suburb}, #{property.city}" %></div>
+        <div class="postcode"><%= property.postcode %></div>
+      </div>
+      <div class="dotDotDot"></div>
+    </div>
+  <% end %>
+</div>
 
-<% @properties.each do |property| %>
-  <tr>
-    <td><%= property.street %></td>
-    <td><%= property.suburb %></td>
-    <td><%= property.city %></td>
-    <td><%= property.postcode %></td>
-    <td><%= property.n_room %></td>
-    <td><%= property.n_bathroom %></td>
-    <td><%= property.note %></td>
-    <td><%= link_to 'Show', property %></td>
-    <td><%= link_to 'Edit', edit_property_path(property) %></td>
-  </tr>
-<% end %>
-</table>
 
 <%= paginate_list("properties_path", 2) %>
 

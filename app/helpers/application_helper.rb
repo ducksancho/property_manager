@@ -4,6 +4,7 @@ module ApplicationHelper
   include HeaderHelper
   include FormHelper
   include PaginateHelper
+  include PhotosHelper
   
   def haha
     # gateway = XeroGateway::PrivateApp.new(XERO_CONSUMER_KEY, XERO_CONSUMER_SECRET, XERO_PRIVATE_KEY_PATH)

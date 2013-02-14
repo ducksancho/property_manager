@@ -52,6 +52,9 @@ en:
     record_not_found: "Record not Found"
     password_updated: "Password Updated"
     wrong_password: "is Wrong"
+    browse_to_file: "Browse To File"
+    browse_to_photo: "Browse To Photo"
+    no_photo: "No Photo"
   attributes:
     # user
     f_name: "First Name"
@@ -69,4 +72,5 @@ en:
     n_room: "Number of Rooms"
     n_bathroom: "Number of Bathrooms"
     note: "Note"
-    
+    photos: "Photos"
+    photo_delete: "Delete this Photo"
