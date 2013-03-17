@@ -1,5 +1,5 @@
 $ ->  
-  unless jQuery.browser.msie
+  unless jQuery.browser != undefined && jQuery.browser.msie
     $("input[type=file]").css("display", "none")
     $(".fileField").css("display", "block")
     $(".fileField").click (event) -> $(this).next("input[type=file]").click()

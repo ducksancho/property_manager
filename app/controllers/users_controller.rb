@@ -12,6 +12,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     return if redirect_on_invalid_signup_code @user
     if @user.save
+      login(Session.new({
+        :email => params[:user][:email], 
+        :password => params[:user][:password]}))
       redirect_to root_path, :notice => t("message.user_registered")
     else
       render :new

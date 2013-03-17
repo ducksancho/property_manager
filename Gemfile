@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 
-gem 'mysql2'
+gem 'mysql2', '0.3.10'
 gem 'xero_gateway'
 gem 'cancan'
 gem 'carrierwave'
@@ -19,8 +19,8 @@ end
 gem 'jquery-rails'
 
 group :test do
-  gem 'rspec-core'
-  gem 'rspec-rails'
+  gem 'rspec-core', '< 2.12.0' 
+  gem 'rspec-rails', '< 2.12.0'
   gem 'capybara'
   gem 'launchy'
   gem 'autotest'

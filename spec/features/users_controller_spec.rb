@@ -71,9 +71,10 @@ describe "UsersController" do
         user.salt.should_not be_blank
         user.encrypted_password.should_not be_blank
       end
-      it "should redirect to root_path" do
+      it "should redirect to root_path and login" do
         page.click_button(I18n.t("link.register"))
         page.current_path.should == root_path
+        page.should have_content(User.first.name)
       end      
     end
     describe "fail" do
@@ -100,7 +101,7 @@ describe "UsersController" do
       login(@user.email, "password")
     end
     describe "content" do
-      it "should right", :focus => true do
+      it "should right" do
         visit user_path(@user)
         page.should have_content(@user.f_name)
         page.should have_content(@user.l_name)

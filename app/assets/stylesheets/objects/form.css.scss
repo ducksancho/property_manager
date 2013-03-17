@@ -1,6 +1,6 @@
 form {
   clear: both;
-  margin: 10px;
+  overflow: auto;
   //  positions
   .full  {width: 100%; float: left;}
   .half  {
@@ -19,15 +19,43 @@ form {
       float: right;
     }
   }
+  // each field
   .field {
     font-size: 90%;
     margin-top: 5px;    
+    // label
     .label {
       display: block;
       height: 40px;
       line-height: 40px;
       vertical-align: middle;     
     }
+    // field border
+    .textField, .fileField {
+      height: 20px;
+      padding: 5px;
+      border-radius: 2px;
+      background-color: $white_std;
+      border: 1px solid $gray_light;
+    }
+    .textField {
+      p {
+        border: none;
+      }
+    }    
+    .fileField {
+      display: none;
+      font-size: 90%;
+      line-height: 20px;
+      &:hover{
+        cursor: pointer;
+        background-color: $blue_std;
+      }
+      .fileFieldDisplay {
+        display: none;
+      }
+    }
+    // field
     textarea, input, select {
       width: 100%;
     }
@@ -45,17 +73,21 @@ form {
       border: 1px solid $gray_light;
       border-radius: 5px;
     }
+    // input 
     input {
       display:block; 
       padding:0;
       border-width:0;
       border-radius: 3px;  
     }
-    input[type=text] {
-      height: 25px;
-      padding: 0;
-      margin: 0;
+    input[type=text], input[type=password], input[type=number] {
+      height: 20px;
       @include content_box();
+    }
+    input[type=file] {
+      @include border_box();
+      float: left;
+      border: 1px solid $gray_light;
     }
     // Example
     // <div class="check"><%= check_box_tag "select_1", 1 %><label for="select_1"></label></div>
@@ -132,36 +164,7 @@ form {
       line-height: 25px;
       padding-top: 2px;
     }
-    input[type=file] {
-      float: left;
-      border: 1px solid $gray_light;
-    }
     
-    .textField {
-      height: 20px;
-      border-radius: 2px;
-      border: 1px solid $gray_light;
-      padding: 5px;
-      background-color: $white_std;
-      p {
-        border: none;
-      }
-    }    
-    .fileField {
-      height: 20px;
-      display: none;
-      background-color: $white_std;
-      border-radius: 2px;
-      border: 1px solid $gray_light;
-      padding: 5px;
-      &:hover{
-        cursor: pointer;
-        background-color: $blue_std;
-      }
-      .fileFieldDisplay {
-        display: none;
-      }
-    }
     label.fieldWithErrors{
       background-color: $red_light;
       color: $red_std;

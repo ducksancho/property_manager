@@ -13,7 +13,7 @@ addPhotoField =(content)->
     html += "<input id='property_photos_attributes_#{last_photo_index+1}_photo' type='file' name='property[photos_attributes][#{last_photo_index+1}][photo]'></input>"
     html += "</div>"
     photo_fields.append(html)
-    unless jQuery.browser.msie
+    unless jQuery.browser != undefined && jQuery.browser.msie
       $(".new_photo_field input[type=file]").css("display", "none")
       $(".new_photo_field .fileField").css("display", "block")
       $(".new_photo_field .fileField").click (event) -> $(this).next("input[type=file]").click()

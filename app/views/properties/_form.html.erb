@@ -4,8 +4,8 @@
   <%= form_field(f, :suburb, :text, "half last") %>
   <%= form_field(f, :city, :text, "half") %>
   <%= form_field(f, :postcode, :text, "half last") %>
-  <%= form_field(f, :n_room, :number, "half last") %>
-  <%= form_field(f, :n_bathroom, :number, "half") %>.
+  <%= form_field(f, :n_room, :number, "half") %>
+  <%= form_field(f, :n_bathroom, :number, "half last") %>
   <%= f.fields_for :notes do |v| %>
     <%= form_field(v, :note, :text, "full") %>
   <% end %>
