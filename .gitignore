@@ -1,7 +1,7 @@
 /.bundle
 /db/*.sqlite3*
-/log/*.log
-/public/uploads
+log/
+public/uploads/
 *.log
 /tmp/
 .sass-cache/
