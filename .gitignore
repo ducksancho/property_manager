@@ -11,3 +11,5 @@ doc/
 .project
 .DS_Store
 *.tmproj
+tags
+tags_gems
