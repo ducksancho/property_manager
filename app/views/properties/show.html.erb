@@ -19,7 +19,7 @@
     <%= display_field(@property, :postcode, :p) %>
     <%= display_field(@property, :n_room, :p) %>
     <%= display_field(@property, :n_bathroom, :p) %>
-    <%= display_field(@property.notes.first, :note, :p) %>
+    <%= display_field(@property.note, :note, :p) %>
   </div>
   <div class="actions">
     <%= link_to t("link.back"), properties_path, :class => "button bGray left" %>  

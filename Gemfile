@@ -20,6 +20,9 @@ end
 
 gem 'jquery-rails'
 
+group :development do
+  gem 'faker'
+end
 group :test do
   gem 'rspec-core', '< 2.12.0' 
   gem 'rspec-rails', '< 2.12.0'

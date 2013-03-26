@@ -6,7 +6,7 @@
   <%= form_field(f, :postcode, :text, "half last") %>
   <%= form_field(f, :n_room, :number, "half") %>
   <%= form_field(f, :n_bathroom, :number, "half last") %>
-  <%= f.fields_for :notes do |v| %>
+  <%= f.fields_for :note do |v| %>
     <%= form_field(v, :note, :text, "full") %>
   <% end %>
   <div class="field full">
