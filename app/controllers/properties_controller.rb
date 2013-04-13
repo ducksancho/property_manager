@@ -1,8 +1,10 @@
 class PropertiesController < ApplicationController
+  before_filter :authentication
   # GET /properties
   # GET /properties.json
   def index
-    @properties = paginate_records(Property.order())
+    @properties = current_user.properties
+    @properties = paginate_records(@properties)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
-    @property = Property.find(params[:id])
+    @property = current_user.properties.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class PropertiesController < ApplicationController
   # GET /properties/new
   # GET /properties/new.json
   def new
-    @property = Property.new
+    @property = current_user.properties.build
     @property.prepare_note_for_form
     @property.prepare_photos_for_form
     respond_to do |format|
@@ -35,7 +37,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1/edit
   def edit
-    @property = Property.find(params[:id])
+    @property = current_user.properties.find(params[:id])
     @property.prepare_note_for_form
     @property.prepare_photos_for_form
   end
@@ -43,7 +45,7 @@ class PropertiesController < ApplicationController
   # POST /properties
   # POST /properties.json
   def create
-    @property = Property.new(params[:property])
+    @property = current_user.properties.build(params[:property])
 
     respond_to do |format|
       if @property.save
@@ -60,7 +62,7 @@ class PropertiesController < ApplicationController
   # PUT /properties/1
   # PUT /properties/1.json
   def update
-    @property = Property.find(params[:id])
+    @property = current_user.properties.find(params[:id])
 
     respond_to do |format|
       if @property.update_attributes(params[:property])
@@ -77,7 +79,7 @@ class PropertiesController < ApplicationController
   # DELETE /properties/1
   # DELETE /properties/1.json
   def destroy
-    @property = Property.find(params[:id])
+    @property = current_user.properties.find(params[:id])
     @property.destroy
 
     respond_to do |format|

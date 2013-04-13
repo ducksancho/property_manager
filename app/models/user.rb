@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :properties, :foreign_key => "creator_id"
+
   attr_accessor :password, :edit_password, :update_password, :original_password
   attr_accessible :f_name, :l_name, :email, :password, :password_confirmation, :update_password, :signup_code, :original_password
   

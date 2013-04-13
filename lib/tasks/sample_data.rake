@@ -15,7 +15,7 @@ namespace :db do
     # 10 properties
     properties = []
     10.times do |i|
-      property = Property.create(
+      property = user1.properties.create(
         :city => Faker::Address.city,
         :suburb => Faker::Address.state,
         :street => Faker::Address.street_address,

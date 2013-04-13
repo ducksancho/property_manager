@@ -1,4 +1,5 @@
 class Property < ActiveRecord::Base
+  belongs_to :creator, :class_name => "User"
   has_many :photos, :as => :photoable, :dependent => :destroy
   has_one :note, :as => :notable, :dependent => :destroy # Use max one note
   
