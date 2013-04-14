@@ -20,9 +20,7 @@ html, body {
 .contentMedium {
   width: 600px;
   margin: 0 auto;
-  overflow: auto;
 }
 .contentFull {
   @include default_layout_width;
-  overflow: auto;
 }
