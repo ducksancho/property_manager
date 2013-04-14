@@ -1,7 +1,6 @@
 $ ->
   if $(".photo.field").length > 0
     $(".photo input[type=file]").change -> addPhotoField(this)
-    $(".photo input[type=checkbox]").change -> hidePhotoField(this)
     
 addPhotoField =(content)->
   photo_fields = $(content).parent().parent()
@@ -31,6 +30,4 @@ addPhotoField =(content)->
       # .replace /\[[0-9]+\]\[photo\]/, "[#{last_photo_index+1}][photo]"
       # .replace /_[0-9]+_photo/, "_#{last_photo_index+1}_photo"
 
-hidePhotoField =(content)->
-  if $(content).is(":checked")
-    $(content).parent().parent().addClass("hidden")
+

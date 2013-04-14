@@ -4,6 +4,10 @@ module PhotosHelper
       (hash[:no_label] ? raw("") : content_tag(:div, hash[:label_text] ? v.label(field, hash[:label_text]) : v.label(field), :class => "label")) +
       if v.object.persisted?
         content_tag(:div, nil, :class => "full") do
+          content_tag(:div, nil, :class => "radio_full") do
+            f.radio_button(:main_photo_index, i, :checked => hash[:main_photo])+
+            content_tag(:div, nil, :class => "icon")
+          end + 
           image_tag(v.object.photo_url(:small), :class => "left") +
           content_tag(:div, nil, :class => "check_full") do
             v.check_box(:photo_delete) +
@@ -13,7 +17,7 @@ module PhotosHelper
         end
       else
         content_tag(:div, nil, :class => "radio_full") do
-          f.radio_button(:main_photo_index, i)+
+          f.radio_button(:main_photo_index, i, :checked => hash[:main_photo])+
           content_tag(:div, nil, :class => "icon")
         end + 
         content_tag(:div, hash[:file_text], :class => "fileField") +

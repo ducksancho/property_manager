@@ -7,7 +7,7 @@
   <div class="form">
     <div class="photos">
       <% @property.photos.each do |photo| %>
-      <div class="photo">
+        <div class="photo<%= " main" if (photo.id == @property.main_photo_id) %>">
         <%= image_tag(photo.photo_url(:small)) %>
       </div>
       <% end %>

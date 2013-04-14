@@ -1,7 +1,7 @@
 // photo field
-#new_property {
+.new_property, .edit_property {
   .photo {
-    .fileField {
+    .fileField, .check_full {
       margin-right: 40px;
     }
     .radio_full {
@@ -112,7 +112,9 @@
         width: 100px;
         height: 75px;
       }
-      
+      &.main {
+        border: 1px solid $blue_dark;
+      }
     }
   }
 }

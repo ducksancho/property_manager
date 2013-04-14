@@ -11,8 +11,10 @@
   <% end %>
   <div class="field full">
     <%= f.label(:photos, raw("Photos <div class='right'>Main</div>"), :class => "label") %>
-    <%= f.fields_for :photos do |v, i| %>
-      <%= form_field_photo(f, v, i, :photo, "full", :file_text => t("message.browse_to_photo"), :no_label => true) %>
+    <% @property.photos.each_with_index do |photo, i| %>
+      <%= f.fields_for :photos, photo do |v| %>
+        <%= form_field_photo(f, v, i, :photo, "full", :file_text => t("message.browse_to_photo"), :no_label => true, :main_photo => (photo.id == @property.main_photo_id)) %>
+      <% end %>
     <% end %>
   </div>
   <div class="actions">

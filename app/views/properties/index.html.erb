@@ -12,7 +12,7 @@
         <%= link_to 'Edit', edit_property_path(property) %>
       </div>
       <div class="mainPhoto">
-        <%= link_to (property.photos.present? ? image_tag(property.photos.first.photo_url(:small)) : t("message.no_photo")), property %>
+        <%= link_to (property.main_photo.present? ? image_tag(property.main_photo.photo_url(:small)) : t("message.no_photo")), property %>
       </div>
       <div class="address">
         <div class="street" title="<%= property.street %>"><%= link_to property.street, property %></div>
