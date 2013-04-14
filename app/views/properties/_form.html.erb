@@ -10,9 +10,9 @@
     <%= form_field(v, :note, :text, "full") %>
   <% end %>
   <div class="field full">
-    <%= f.label(:photos, :class => "label") %>
-    <%= f.fields_for :photos do |v| %>
-      <%= form_field_photo(v, :photo, "full", :file_text => t("message.browse_to_photo"), :no_label => true) %>
+    <%= f.label(:photos, raw("Photos <div class='right'>Main</div>"), :class => "label") %>
+    <%= f.fields_for :photos do |v, i| %>
+      <%= form_field_photo(f, v, i, :photo, "full", :file_text => t("message.browse_to_photo"), :no_label => true) %>
     <% end %>
   </div>
   <div class="actions">

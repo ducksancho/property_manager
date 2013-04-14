@@ -2,9 +2,11 @@ class Property < ActiveRecord::Base
   belongs_to :creator, :class_name => "User"
   has_many :photos, :as => :photoable, :dependent => :destroy
   has_one :note, :as => :notable, :dependent => :destroy # Use max one note
+  has_one :main_photo, :class_name => "Photo"
   
   accepts_nested_attributes_for :note, :photos
-  attr_accessible :city, :n_bathroom, :n_room, :postcode, :street, :suburb, :note_attributes, :photos_attributes
+  attr_accessor :main_photo_index
+  attr_accessible :city, :n_bathroom, :n_room, :postcode, :street, :suburb, :note_attributes, :photos_attributes, :main_photo_id, :main_photo_index
   
   before_save :remove_empty_note, :remove_empty_photo
   

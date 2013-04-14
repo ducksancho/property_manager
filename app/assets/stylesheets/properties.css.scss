@@ -1,3 +1,15 @@
+// photo field
+#new_property {
+  .photo {
+    .fileField {
+      margin-right: 40px;
+    }
+    .radio_full {
+      float: right;
+    }
+  }
+}
+
 // index
 #propertyIndex {
   margin-right: -21px;
@@ -85,8 +97,8 @@
 #propertyShow {
   .photos {
     width: 100%;
-    height: 83px;
-    overflow: hidden;
+    min-height: 83px;
+    // overflow: hidden;
     .photo {
       width: 100px;
       height: 75px;
@@ -95,6 +107,7 @@
       border-radius: 3px;
       border: 1px solid $gray_light;
       margin-right: 5px;
+      margin-bottom: 5px;
       img {
         width: 100px;
         height: 75px;

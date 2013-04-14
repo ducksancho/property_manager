@@ -9,6 +9,10 @@ addPhotoField =(content)->
   last_photo_index = photo_fields.find(".photo").length - 1
   if last_photo_index <= edited_photo_index
     html = "<div class='photo field full new_photo_field'>"
+    html += "<div class='radio_full'>"
+    html += "<input id='property_main_photo_index' name='property[main_photo_index]' type='radio' value='#{last_photo_index+1}'>"
+    html += "<div class='icon'></div>"
+    html += "</div>"
     html += "<div class='fileField'>Browse To Photo</div>"
     html += "<input id='property_photos_attributes_#{last_photo_index+1}_photo' type='file' name='property[photos_attributes][#{last_photo_index+1}][photo]'></input>"
     html += "</div>"
